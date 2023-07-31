@@ -4,6 +4,8 @@
     <article>
         <h2>{{ $post->title }}</h2>
 
+        <p>By Sandhika Galih in <a href="/categories/{{ $post->category->slug }}">{{ $post->category->name }}</a></p>
+
         {!! $post->body !!}
 
     </article>
@@ -14,8 +16,17 @@
 {{-- 
     Post::create([
     'title' => 'Judul Ke Tiga',
+    'category_id' => 3,
     'slug' => 'judul-ke-tiga',
-    'excerpt' => 'Lorem ipsum dolor sit amet consectetur ke tiga',
-    'body' => '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti voluptas possimus, quas suscipit consequuntur quae atque dolorum. Dolores ipsam eveniet sunt molestiae distinctio ducimus voluptatibus obcaecati reiciendis ratione quisquam perferendis quia vel laborum error non officia, aliquid quae beatae molestias maxime et? Doloremque error veniam autem repellendus quod tenetur molestias qui illo laborum! Aliquid fuga excepturi ducimus incidunt? Necessitatibus illum aspernatur, consequuntur eveniet aperiam ut odio! Deleniti porro tenetur similique.</p><p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni ipsum pariatur totam voluptates modi consectetur iure iste, nisi sapiente culpa sed ipsam expedita officia, eum voluptas tempore molestiae neque reiciendis delectus enim molestias sint quia dignissimos nostrum! Animi, quibusdam. Veniam voluptas, cum mollitia nisi temporibus incidunt ex harum eum ea!</p>'
+    'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, exceptur Pertama',
+    'body' => '<p>ipsum dolor sit amet consectetur adipisicing elit. Quisquam exercitationem quidem adipisci recusandae blanditiis dolore cupiditate explicabo porro assumenda doloribus, eligendi ea consequatur nemo enim vitae officia commodi dicta soluta quam impedit amet! Quis ipsum ad obcaecati voluptate eligendi eaque tenetur veritatis reiciendis, aperiam</p><p>doloribus unde enim odit natus harum ea, dolorem vel tempore nemo deleniti veniam nulla facere aliquid. Iure, cupiditate ducimus expedita, unde eaque deleniti tempora, accusamus nemo esse quidem laboriosam voluptates cumque vel laudantium. Quae, quod non!</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde assumenda perferendis, tenetur repellat quia dolore ullam labore ea perspiciatis, expedita eum aliquam a reprehenderit saepe quos quidem voluptatum aut iure!</p>'
 ]) 
+--}}
+
+{{-- 
+    Category::create([
+    'name' => 'Personal',
+    'slug'=> 'personal'
+])
+
 --}}
