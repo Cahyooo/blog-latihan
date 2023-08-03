@@ -6,9 +6,10 @@
         <div class="col-md-6">
             <form action="/posts" method="get">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Search..." name="search">
+                    <input type="text" class="form-control" placeholder="Search..." name="search"
+                        value="{{ request('search') }}">
                     <button class="btn btn-danger" type="submit">Search</button>
-                  </div>
+                </div>
             </form>
         </div>
     </div>
