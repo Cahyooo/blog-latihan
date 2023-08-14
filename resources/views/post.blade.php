@@ -1,32 +1,24 @@
 @extends('layouts.main')
 
 @section('container')
-    <article>
-        <h2>{{ $post->title }}</h2>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h1 class="mb-3">{{ $post->title }}</h1>
 
-        <p>By <a href="/authors/{{ $post->author->username }}" class="text-decoration-none">{{ $post->author->name }}</a> in <a href="/categories/{{ $post->category->slug }}" class="text-decoration-none">{{ $post->category->name }}</a></p>
+                <p>By <a href="/authors/{{ $post->author->username }}"
+                        class="text-decoration-none">{{ $post->author->name }}</a> in <a
+                        href="/categories/{{ $post->category->slug }}"
+                        class="text-decoration-none">{{ $post->category->name }}</a></p>
 
-        {!! $post->body !!}
+                <img src="https://source.unsplash.com/1200x400?{{ $post->category->name }}" alt="{{ $post->category->name }}"
+                    class="img-fluid">
 
-    </article>
-
-    <a href="/posts" class="d-block mt-3">Back To Post</a>
+                <article class="my-3 fs-5">
+                    {!! $post->body !!}
+                </article>
+                <a href="/posts" class="d-block mt-3 fs-2 mb-5">Back To Post</a>
+            </div>
+        </div>
+    </div>
 @endsection
-
-{{-- 
-    Post::create([
-    'title' => 'Judul Ke Tiga',
-    'category_id' => 3,
-    'slug' => 'judul-ke-tiga',
-    'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, exceptur Pertama',
-    'body' => '<p>ipsum dolor sit amet consectetur adipisicing elit. Quisquam exercitationem quidem adipisci recusandae blanditiis dolore cupiditate explicabo porro assumenda doloribus, eligendi ea consequatur nemo enim vitae officia commodi dicta soluta quam impedit amet! Quis ipsum ad obcaecati voluptate eligendi eaque tenetur veritatis reiciendis, aperiam</p><p>doloribus unde enim odit natus harum ea, dolorem vel tempore nemo deleniti veniam nulla facere aliquid. Iure, cupiditate ducimus expedita, unde eaque deleniti tempora, accusamus nemo esse quidem laboriosam voluptates cumque vel laudantium. Quae, quod non!</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde assumenda perferendis, tenetur repellat quia dolore ullam labore ea perspiciatis, expedita eum aliquam a reprehenderit saepe quos quidem voluptatum aut iure!</p>'
-]) 
---}}
-
-{{-- 
-    Category::create([
-    'name' => 'Personal',
-    'slug'=> 'personal'
-])
-
---}}
