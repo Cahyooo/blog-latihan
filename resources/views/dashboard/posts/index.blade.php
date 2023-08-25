@@ -5,6 +5,15 @@
         <h1 class="h2">My Post</h1>
     </div>
 
+    @if (session()->has('success'))
+        <div class="col-lg-8">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    @endif
+
     <div class="table-responsive col-lg-8">
         <a href="/dashboard/posts/create" class="btn btn-primary mb-3">Create new post</a>
         <table class="table table-striped table-sm">
@@ -18,17 +27,20 @@
             </thead>
             <tbody>
                 @foreach ($posts as $post)
-                <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $post->title }}</td>
-                    <td>{{ $post->category->name }}</td>
-                    <td>
-                        <a href="/dashboard/posts/{{ $post->slug }}" class="badge bg-info"><i class="bi bi-eye" style="width:12px;height:12px;"></i></a>
-                        <a href="" class="badge bg-warning"><i class="bi bi-pencil-square" style="width:12px;height:12px;"></i></a>
-                        <a href="" class="badge bg-danger"><i class="bi bi-x-circle" style="width:12px;height:12px;"></i></a>
-                    </td>
-                </tr>                    
-                @endforeach 
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $post->title }}</td>
+                        <td>{{ $post->category->name }}</td>
+                        <td>
+                            <a href="/dashboard/posts/{{ $post->slug }}" class="badge bg-info"><i class="bi bi-eye"
+                                    style="width:12px;height:12px;"></i></a>
+                            <a href="" class="badge bg-warning"><i class="bi bi-pencil-square"
+                                    style="width:12px;height:12px;"></i></a>
+                            <a href="" class="badge bg-danger"><i class="bi bi-x-circle"
+                                    style="width:12px;height:12px;"></i></a>
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
