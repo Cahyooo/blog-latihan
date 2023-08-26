@@ -34,10 +34,14 @@
                         <td>
                             <a href="/dashboard/posts/{{ $post->slug }}" class="badge bg-info"><i class="bi bi-eye"
                                     style="width:12px;height:12px;"></i></a>
-                            <a href="" class="badge bg-warning"><i class="bi bi-pencil-square"
+                            <a href="/dashboard/posts/{{ $post->slug }}/edit" class="badge bg-warning"><i class="bi bi-pencil-square"
                                     style="width:12px;height:12px;"></i></a>
-                            <a href="" class="badge bg-danger"><i class="bi bi-x-circle"
-                                    style="width:12px;height:12px;"></i></a>
+                            <form action="/dashboard/posts/{{ $post->slug }}" method="POST" class="d-inline">
+                                @method('delete')
+                                @csrf
+                                <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><i
+                                        class="bi bi-x-circle" style="width:12px;height:12px;"></i></button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
