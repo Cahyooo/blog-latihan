@@ -22,8 +22,15 @@
 
     @if ($posts->count() > 0)
         <div class="card mb-3">
-            <img src="https://source.unsplash.com/1200x400?{{ $posts[0]->category->name }}" class="card-img-top"
-                alt="{{ $posts[0]->category->name }}">
+            @if ($posts[0]->image)
+                <div>
+                    <img src="{{ asset('storage/' . $posts[0]->image) }}" alt="{{ $posts[0]->category->name }}"
+                        class="card-img-top" style="height: 400px;width:1200px;">
+                </div>
+            @else
+                <img src="https://source.unsplash.com/1200x400?{{ $posts[0]->category->name }}" class="card-img-top"
+                    alt="{{ $posts[0]->category->name }}">
+            @endif
             <div class="card-body text-center">
                 <h3 class="card-title"><a href="/posts/{{ $posts[0]->slug }}"
                         class="text-decoration-none text-dark">{{ $posts[0]->title }}</a></h3>
@@ -47,8 +54,15 @@
                             <div class="position-absolute bg-dark px-3 py-2 text-white" style="opacity: 0.7"><a
                                     href="/posts?category={{ $post->category->slug }}"
                                     class="text-white text-decoration-none">{{ $post->category->name }}</a></div>
+                            @if ($post->image)
+                                <div>
+                                    <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->category->name }}"
+                                        class="card-img-top">
+                                </div>
+                            @else
                             <img src="https://source.unsplash.com/500x500?{{ $post->category->name }}" class="card-img-top"
                                 alt="{{ $post->category->name }}">
+                            @endif
                             <div class="card-body">
                                 <h5 class="card-title">{{ $post->title }}</h5>
                                 <p>
