@@ -14,7 +14,7 @@
                 @if ($post->image)
                     <div>
                         <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->category->name }}"
-                            class="img-fluid" style="height: 400px;width:1200px;">
+                            class="img-fluid" style="height: 400px;">
                     </div>
                 @else
                     <img src="https://source.unsplash.com/1200x400?{{ $post->category->name }} alt="{{ $post->category->name }}"

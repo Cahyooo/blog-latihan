@@ -25,7 +25,7 @@
             @if ($posts[0]->image)
                 <div>
                     <img src="{{ asset('storage/' . $posts[0]->image) }}" alt="{{ $posts[0]->category->name }}"
-                        class="card-img-top" style="height: 400px;width:1200px;">
+                        class="card-img-top" style="height: 400px;">
                 </div>
             @else
                 <img src="https://source.unsplash.com/1200x400?{{ $posts[0]->category->name }}" class="card-img-top"
